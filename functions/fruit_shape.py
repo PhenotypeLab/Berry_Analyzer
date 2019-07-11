@@ -17,9 +17,9 @@ def berry_shape(cnts, factor=1, prev_result=None, prev_header=None, fancy_output
     """
     font = FONT_HERSHEY_SIMPLEX
     if prev_header==None:
-        header=['organ','width', 'height', 'area', 'pos_x', 'pos_y']
+        header=['organ','width', 'height', 'area']
     else:
-        header=prev_header+['organ','width', 'height', 'area', 'pos_x', 'pos_y']
+        header=prev_header+['organ','width', 'height', 'area']
     if prev_result==None:
         result=[]
     else:
@@ -50,17 +50,17 @@ def berry_shape(cnts, factor=1, prev_result=None, prev_header=None, fancy_output
         except:
             _, (MA, ma), _ = fitEllipse(cnt)
         if prev_result==None:
-            result.append(['bayas', round(MA * factor, 2), round(ma * factor, 2), round(area*(factor**2), 2), int(center[0]), int(center[1])])
+            result.append(['bayas', round(MA * factor, 2), round(ma * factor, 2), round(area*(factor**2), 2)])
         else:
-            result[counter]=result[counter]+['bayas', round(MA * factor, 2), round(ma * factor, 2), round(area*(factor**2), 2), int(center[0]), int(center[1])]
+            result[counter]=result[counter]+['bayas', round(MA * factor, 2), round(ma * factor, 2), round(area*(factor**2), 2)]
         counter+=1
     return [result, header]
 
 def rachis_shape(cnts, factor=1, prev_result=None, prev_header=None, fancy_output=None):
     if prev_header==None:
-        header=['organ','width', 'height', 'area', 'pos_x', 'pos_y']
+        header=['organ','width', 'height', 'area']
     else:
-        header=prev_header+['organ','width', 'height', 'area', 'pos_x', 'pos_y']
+        header=prev_header+['organ','width', 'height', 'area']
     if prev_result==None:
         result=[]
     else:
