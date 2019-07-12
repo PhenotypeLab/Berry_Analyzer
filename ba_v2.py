@@ -6,12 +6,11 @@ from functions.color_reader import template_reader, tmpl_mask
 from functions.four_points_edited import four_point_transform, contour_transform
 from functions.geometry import factor_calculator
 from functions.fruit_shape import berry_shape, rachis_shape
-from functions.json_formatter import Json_formatter
 from numpy import zeros, uint8
 
 organs=['bayas', 'raquis']
 
-def analyzer(url, url_output, color_folder, organ, json_data=True):
+def analyzer(url, url_output, color_folder, organ):
     img = imread(url)
 
     # detect the white square and the objects in it
@@ -61,7 +60,4 @@ def analyzer(url, url_output, color_folder, organ, json_data=True):
             imwrite(url_output+url.split('/')[-1]+'_watcher.png', black)
         else:
             imwrite(url_output + '/' + url.split('/')[-1] + '_watcher.png', black)
-    if json_data:
-        return Json_formatter(header, result)
-    else:
-        return [header]+result
+    return [header]+result
