@@ -4,6 +4,7 @@ import sys, getopt
 from pathlib import Path
 
 def bash(path_to_photos, output_dir = None, color_folder=None, organ='bayas', keywords=[]):
+    img_extensions=[".png", ".jpg", ".bmp"]
     if output_dir!=None:
         output_dir = Path(output_dir)
     path_to_photos=Path(path_to_photos)
@@ -17,7 +18,7 @@ def bash(path_to_photos, output_dir = None, color_folder=None, organ='bayas', ke
         if 'report.tsv' in n:
             continue
         print(n, end=' ')
-        if n[-4:] != '.png' or n[0] == '.' or '_watcher.png' in n:
+        if n[-4:] not in img_extensions or n[0] == '.' or '_watcher.png' in n:
             print('not valid file')
             continue
         keycheck = False
