@@ -1,4 +1,4 @@
-from cv2 import imread, imwrite, drawContours, bitwise_and
+from cv2 import imread, imwrite, drawContours, bitwise_and, imshow, waitKey, destroyAllWindows, namedWindow, WINDOW_GUI_NORMAL
 from functions.detect import detect_markers_integrated
 from functions.find_objects import img_check, roi_filter, contour_crop
 from functions.color_balance_marker import colorBalance
@@ -22,7 +22,16 @@ def analyzer(url, url_output, color_folder, organ):
 
     # detect marker and delete it from contours
     markers, contours = detect_markers_integrated(img, contours)
+
+    #namedWindow("img", WINDOW_GUI_NORMAL)###
+    #imshow("img", img)###
+
     img = colorBalance(img, markers[0].coordinates())
+
+    #namedWindow("cb", WINDOW_GUI_NORMAL)###
+    #imshow("cb", img)###
+    #waitKey(0)###
+    #destroyAllWindows()###
 
     # (optional) calculate factor pixel to cm
     factor = factor_calculator(markers, real_border=5.0)

@@ -72,11 +72,17 @@ def tmpl_mask(img, tmpls_parsed, factor=1, cnts=None, prev_result=None, prev_hea
             if prev_result==None:
                 #result[-1].append(round(countNonZero(masked) * (factor ** 2), 2))
                 result[-1].append(n)
-                result[-1].append(round((n/all)*100, 2))
+                try:
+                    result[-1].append(round((n/all)*100, 2))
+                except:
+                    result[-1].append(round(0.0, 2))
             else:
                 #result[counter].append(round(countNonZero(masked) * (factor ** 2), 2))
                 result[counter].append(n)
-                result[counter].append(round((n / all) * 100, 2))
+                try:
+                    result[counter].append(round((n / all) * 100, 2))
+                except:
+                    result[counter].append(round(0.0, 2))
         counter+=1
     return [result, header]
 

@@ -22,4 +22,4 @@ def line_newPoint(point, length,rad):
     return (int(x), int(y))
 
 def factor_calculator(markers_list, real_border=1):
-    return (real_border*0.895) / (contourArea(markers_list[0].coordinates().reshape(4, 1, 2)) ** (1 / 2))
+    return (real_border*1) / (contourArea(markers_list[0].coordinates().reshape(4, 1, 2)) ** (1 / 2))
