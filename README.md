@@ -6,7 +6,9 @@ Para hacer uso de estas funciones, se debe tener instalado Python 3 junto al adm
 
 Instalar las siguientes librerías:
 
-`pip install numpy opencv-python ar-markers`
+`pip install numpy opencv-python`
+
+También requiere de la librería `ar-markers`, pero debido al abandono de su repositorio, es necesario instalarla manualmente desde la rama `master` del repositorio <https://github.com/MomsFriendlyRobotCompany/ar_markers>. ADVERTENCIA: `ar-markers` depende de la librería `build_utils`, la cual también ha sido abandonada y debe ser instalada directamente desde la rama `master` del repositorio <https://github.com/walchko/build_utils>.
 
 Descargar este proyecto o clonar con `git`
 

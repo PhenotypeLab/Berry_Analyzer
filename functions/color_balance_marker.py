@@ -43,6 +43,7 @@ def colorBalance(img, marker_coords):
                                                                       img_pattern[0][n] - img_pattern[1][n] + 1)
         lut[n][img_pattern[0][n] + 1:256] = np.linspace(img_reference[0][n] + 1, 255, 255 - img_pattern[0][n])   #comentar esta linea y la 55 para ver pixeles en la foto fuera del rango del patron
     img_ch = cv2.split(img)
+    img_ch = list(img_ch)
     for n in range(len(colors)):
         img_ch[n] = cv2.LUT(img_ch[n], lut[n]).astype(np.uint8)
     return cv2.merge(img_ch)

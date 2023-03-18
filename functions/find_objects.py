@@ -20,13 +20,15 @@ def img_check(img):
     M = ones((2, 2), uint8)
     img_roi = cv2.dilate(img_roi, M, iterations=1)
 
-    try:
-        _, cnts, hierarchy = cv2.findContours(img_roi, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    except:
-        cnts, hierarchy = cv2.findContours(img_roi, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    cnts, hierarchy = cv2.findContours(img_roi, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    # try:
+    #     _, cnts, hierarchy = cv2.findContours(img_roi, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    # except:
+    #     cnts, hierarchy = cv2.findContours(img_roi, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     counter = 0
     major_area=0
     temp=w_a*h_a
+    cnts = list(cnts)
     for c in cnts:
         c[:, 0, 0] = c[:, 0, 0] // new_x
         c[:, 0, 1] = c[:, 0, 1] // new_x

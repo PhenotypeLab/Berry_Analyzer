@@ -1,0 +1,8 @@
+venv/
+.venv/
+__pycache__/
+functions/__pycache__/
+*.py[cod]
+*$py.class
+output/*
+*.zip

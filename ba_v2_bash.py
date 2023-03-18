@@ -32,10 +32,10 @@ def bash(path_to_photos, output_dir = None, color_folder=None, organ='bayas', ke
                 continue
         #print(path_to_photos+n, output_dir+n)
         try:
-            if output_dir!=None:
+            if output_dir:
                 data=analyzer(url=(path_to_photos/n).as_posix(), url_output=output_dir.as_posix(), color_folder=color_folder, organ=organ)
             else:
-                data = analyzer(url=(path_to_photos / n).as_posix(), url_output=output_dir, color_folder=color_folder, organ=organ)
+                data = analyzer(url=(path_to_photos / n).as_posix(), url_output=None, color_folder=color_folder, organ=organ)
         except:
             print('this image can not be analyzed')
             continue
